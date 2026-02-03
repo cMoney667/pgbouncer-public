@@ -23,8 +23,8 @@ projects:
               - key: PORT
                 value: 5432
         databases:
-          - name: pg-dev
-            databaseName: pg-dev
+          - name: pg_dev
+            databaseName: pg_dev
             user: pgbouncerdev
             region: ohio
             ipAllowList:

@@ -32,3 +32,4 @@ projects:
                 description: collin.oconnell@gardner-white.com (WORK)
               - source: 172.5.114.130/32
                 description: collin.oconnell@gardner-white.com (HOME)
+            diskSizeGB: 20

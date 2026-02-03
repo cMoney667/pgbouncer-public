@@ -1,0 +1,34 @@
+projects:
+  - name: PGBouncer Public
+    environments:
+      - name: Dev
+        services:
+          - type: web
+            name: pgbbouncer-dev
+            runtime: docker
+            plan: standard
+            repo: https://github.com/render-oss/docker-pgbouncer
+            region: ohio
+            envVars:
+              - key: DATABASE_URL
+                fromDatabase:
+                  name: pg-dev
+                  property: connectionString
+              - key: POOL_MODE
+                value: transaction
+              - key: SERVER_RESET_QUERY
+                value: DISCARD ALL
+              - key: MAX_CLIENT_CONN
+                value: 500
+              - key: PORT
+                value: 5432
+        databases:
+          - name: pg-dev
+            databaseName: pg-dev
+            user: pgbouncerdev
+            region: ohio
+            ipAllowList:
+              - source: 216.75.252.84/32
+                description: collin.oconnell@gardner-white.com (WORK)
+              - source: 172.5.114.130/32
+                description: collin.oconnell@gardner-white.com (HOME)
